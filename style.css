@@ -1,0 +1,268 @@
+:root {
+    --bg-dark: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f1f1f1;
+    --accent-color: #bb86fc;
+    --secondary-text: #b0b0b0;
+    --btn-color: #bb86fc;
+    --btn-text: #000000;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+    font-family: 'Fredoka One', cursive;
+    color: var(--accent-color);
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+h2, h3 {
+    font-weight: 400;
+}
+
+.header {
+    background-color: var(--card-bg);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.tagline {
+    font-style: italic;
+    color: var(--secondary-text);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.nav a:hover {
+    color: var(--accent-color);
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.badge {
+    background-color: var(--accent-color);
+    color: var(--btn-text);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.image-placeholder img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.price {
+    color: var(--accent-color);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: var(--btn-color);
+    color: var(--btn-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.cart, .about, .footer {
+    padding: 40px;
+    text-align: center;
+    background-color: var(--card-bg);
+    margin-top: 20px;
+}
+
+/* Styles pour la modale */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    color: var(--secondary-text);
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+}
+/* Choix de la taille */
+.size-label {
+    display: block;
+    margin-top: 10px;
+    color: var(--secondary-text);
+    font-weight: bold;
+}
+
+.size-select {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    font-family: inherit;
+}
+
+.hidden {
+    display: none;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 8px auto;
+}
+
+
+/* Images cliquables (zoom) */
+.zoomable {
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+}
+
+.zoomable:hover {
+    transform: scale(1.03);
+}
+
+/* Lightbox pour voir l'image en grand */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2001;
+}
