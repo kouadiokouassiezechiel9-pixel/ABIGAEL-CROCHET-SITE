@@ -1,143 +1,61 @@
-const modal = document.getElementById("contact-modal");
-const checkoutBtn = document.getElementById("checkout-btn");
-const closeBtn = document.querySelector(".close-btn");
-const categoryButtons = document.querySelectorAll(".categories .badge");
-const productCards = document.querySelectorAll(".tous .card");
-const cartItemsContainer = document.getElementById("cart-items");
-const cartTotalElement = document.getElementById("cart-total");
-const cartCountElement = document.getElementById("cart-count");
+const fmt=n=>n.toLocaleString("fr-FR");
+const cards=[...document.querySelectorAll(".card")],chips=[...document.querySelectorAll(".chips button")];
+chips.forEach(b=>b.addEventListener("click",()=>{chips.forEach(c=>c.setAttribute("aria-pressed",c===b));cards.forEach(c=>c.hidden=b.dataset.f!=="all"&&c.dataset.cat!==b.dataset.f)}));
 
-let cart = [];
+// Lightbox
+const lb=document.getElementById("lb"),li=lb.querySelector("img");
+document.querySelectorAll(".ph").forEach(p=>p.addEventListener("click",()=>{li.src=p.firstElementChild.src;li.alt=p.firstElementChild.alt;lb.classList.add("on")}));
+lb.addEventListener("click",()=>lb.classList.remove("on"));
 
-const formatPrice = n => n.toLocaleString("fr-FR");
+// Prix selon la taille
+document.querySelectorAll(".size-select").forEach(s=>s.addEventListener("change",()=>{
+  const v=parseInt(s.selectedOptions[0].dataset.price),p=s.closest(".card").querySelector(".pr");
+  p.dataset.price=v;p.textContent=fmt(v)+" FCFA";
+}));
 
-// Met à jour le prix affiché quand on change de taille (S/M ou L/XL)
-document.querySelectorAll(".size-select").forEach(select => {
-    select.addEventListener("change", function () {
-        const price = parseInt(this.selectedOptions[0].dataset.price);
-        const priceElement = this.closest(".card").querySelector(".price");
-        priceElement.dataset.price = price;
-        priceElement.innerText = formatPrice(price) + " FCFA";
-    });
-});
-
-// Ajout au panier : un article = produit + groupe de tailles
-document.querySelectorAll(".add-to-cart").forEach(button => {
-    button.addEventListener("click", function () {
-        const card = this.closest(".card");
-        const name = card.querySelector("h3").innerText;
-        const price = parseInt(card.querySelector(".price").dataset.price);
-        const select = card.querySelector(".size-select");
-        const size = select ? select.value : "";
-
-        const existingItem = cart.find(item => item.name === name && item.size === size);
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({ name, size, price, quantity: 1 });
-        }
-        updateCartDisplay();
-    });
-});
-
-function getTotal() {
-    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+// Panier
+let cart=[];
+const itemsEl=document.getElementById("cart-items"),totalEl=document.getElementById("cart-total"),countEl=document.getElementById("cart-count"),emptyEl=document.getElementById("cart-empty");
+const total=()=>cart.reduce((s,i)=>s+i.price*i.qty,0);
+const label=i=>i.name+(i.size?" ("+i.size+")":"")+(i.qty>1?" x "+i.qty:"");
+function render(){
+  itemsEl.innerHTML="";
+  cart.forEach((it,idx)=>{
+    const row=document.createElement("div");row.className="cart-item";
+    const t=document.createElement("span");t.textContent=label(it)+" — "+fmt(it.price*it.qty)+" FCFA";
+    const b=document.createElement("button");b.textContent="Retirer";b.setAttribute("aria-label","Retirer "+it.name);
+    b.addEventListener("click",()=>{it.qty>1?it.qty--:cart.splice(idx,1);render()});
+    row.append(t,b);itemsEl.append(row);
+  });
+  totalEl.textContent=fmt(total());
+  countEl.textContent=cart.reduce((n,i)=>n+i.qty,0);
+  emptyEl.hidden=cart.length>0;
 }
+document.querySelectorAll(".add").forEach(btn=>btn.addEventListener("click",()=>{
+  const card=btn.closest(".card"),name=card.querySelector("h3").textContent,price=parseInt(card.querySelector(".pr").dataset.price);
+  const sel=card.querySelector(".size-select"),size=sel?sel.value:"";
+  const ex=cart.find(i=>i.name===name&&i.size===size);
+  ex?ex.qty++:cart.push({name,size,price,qty:1});
+  render();
+  btn.textContent="Ajouté ✓";setTimeout(()=>btn.textContent="Ajouter au panier",1200);
+}));
+render();
 
-function itemLabel(item) {
-    const sizeText = item.size ? ` (${item.size})` : "";
-    const qtyText = item.quantity > 1 ? ` x ${item.quantity}` : "";
-    return `${item.name}${sizeText}${qtyText}`;
-}
-
-function updateCartDisplay() {
-    cartItemsContainer.innerHTML = "";
-    cart.forEach(item => {
-        const el = document.createElement("div");
-        el.classList.add("cart-item");
-        el.innerHTML = `<span>${itemLabel(item)}</span> <span>${formatPrice(item.price * item.quantity)} FCFA</span>`;
-        cartItemsContainer.appendChild(el);
-    });
-    cartTotalElement.innerText = formatPrice(getTotal());
-    cartCountElement.innerText = cart.reduce((count, item) => count + item.quantity, 0);
-}
-
-checkoutBtn.addEventListener("click", function () {
-    if (cart.length === 0) {
-        alert("Votre panier est vide !");
-        return;
-    }
-    modal.classList.add("active");
+// Commande par WhatsApp
+const modal=document.getElementById("modal");
+document.getElementById("checkout").addEventListener("click",()=>{
+  if(!cart.length){alert("Votre panier est vide !");return}
+  modal.classList.add("on");
 });
-
-closeBtn.addEventListener("click", () => modal.classList.remove("active"));
-
-window.addEventListener("click", function (event) {
-    if (event.target == modal) modal.classList.remove("active");
+modal.querySelector(".x").addEventListener("click",()=>modal.classList.remove("on"));
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("on")});
+document.getElementById("order-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const msg="Bonjour, je suis "+document.getElementById("name").value+".\n"+
+    "Téléphone : "+document.getElementById("phone").value+"\n"+
+    "Email : "+document.getElementById("email").value+"\n\n"+
+    "Commande : "+cart.map(i=>label(i)+" ("+fmt(i.price*i.qty)+" FCFA)").join(", ")+"\n"+
+    "Total : "+fmt(total())+" FCFA";
+  window.open("https://wa.me/2250161334977?text="+encodeURIComponent(msg),"_blank");
 });
-
-categoryButtons.forEach(button => {
-    button.addEventListener("click", function (e) {
-        e.preventDefault();
-        categoryButtons.forEach(btn => btn.classList.remove("active"));
-        this.classList.add("active");
-        const category = this.getAttribute("data-category");
-        productCards.forEach(card => {
-            const show = category === "all" || card.getAttribute("data-category") === category;
-            card.classList.toggle("hidden", !show);
-        });
-    });
-});
-
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const nom = document.getElementById("name").value;
-    const telephone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-
-    const detailsCommande = cart
-        .map(item => `${itemLabel(item)} (${formatPrice(item.price * item.quantity)} FCFA)`)
-        .join(", ");
-
-    const telephoneBoutique = "2250161334977";
-
-    const texteMessage =
-        `Bonjour, je suis ${nom}.\n` +
-        `Téléphone : ${telephone}\n` +
-        `Email : ${email}\n\n` +
-        `Commande : ${detailsCommande}\n` +
-        `Total : ${formatPrice(getTotal())} FCFA`;
-
-    window.open(`https://wa.me/${telephoneBoutique}?text=${encodeURIComponent(texteMessage)}`, "_blank");
-});
-
-
-// Lightbox : agrandir une image au clic
-const lightboxOverlay = document.getElementById("lightbox-overlay");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxClose = document.querySelector(".lightbox-close");
-
-document.querySelectorAll(".zoomable").forEach(img => {
-    img.addEventListener("click", function () {
-        lightboxImg.src = this.src;
-        lightboxImg.alt = this.alt;
-        lightboxOverlay.classList.add("active");
-    });
-});
-
-lightboxClose.addEventListener("click", () => {
-    lightboxOverlay.classList.remove("active");
-});
-
-lightboxOverlay.addEventListener("click", function (event) {
-    if (event.target === lightboxOverlay) {
-        lightboxOverlay.classList.remove("active");
-    }
-});
-
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        lightboxOverlay.classList.remove("active");
-    }
-});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){lb.classList.remove("on");modal.classList.remove("on")}});

@@ -1,270 +1,255 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abigael Crochet - Le style pour Tous</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abigael Crochet – Le style pour tous</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header class="header">
-        <div class="logo-container">
-            <img src="logo_ac.jfif" alt="Logo Abigael Crochet" class="logo">
-            <h1>Abigael Crochet</h1>
-        </div>
-        <p class="tagline">Votre style, mon affaire</p>
-        <nav class="nav">
-            <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#tous">Collections</a></li>
-                <li><a href="#about">Notre Histoire</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#contact" id="contact-link">Contact</a></li>
-                <li><a href="#cart" id="cart-icon">Panier (<span id="cart-count">0</span>)</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <h2>Pour les petits et pour les grands!</h2>
-        <div class="categories">
-            <a href="#" class="badge active" data-category="all">Tout pour toi, fais ton choix</a>
-        </div>
-    </section>
-
-    <section id="tous" class="tous">
-        <div class="grid">
-            <div class="card" data-category="women">
-                <div class="image-placeholder"><img src="jube jolie.jpeg" alt="Jube Jolie" class="zoomable"></div>
-                <h3>Jube Jolie</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="15000">XS / S — 15 000 FCFA</option>
-                    <option value="M / L" data-price="17000">M / L — 17 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="19000">XL / 2XL — 19 000 FCFA</option>
-                </select>
-                <p class="price" data-price="15000">15 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="women">
-                <div class="image-placeholder"><img src="robe long multicolore.jpeg" alt="Robe Longue Multicolore" class="zoomable"></div>
-                <h3>Robe Longue Multicolore</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="20000">XS / S — 20 000 FCFA</option>
-                    <option value="M / L" data-price="22000">M / L — 22 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="24000">XL / 2XL — 24 000 FCFA</option>
-                </select>
-                <p class="price" data-price="20000">20 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="women">
-                <div class="image-placeholder"><img src="belle robe a fleur bleu.jpeg" alt="Robe Bleue Fleurie" class="zoomable"></div>
-                <h3>Robe Bleue Fleurie</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="18000">XS / S — 18 000 FCFA</option>
-                    <option value="M / L" data-price="20000">M / L — 20 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="22000">XL / 2XL — 22 000 FCFA</option>
-                </select>
-                <p class="price" data-price="18000">18 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="children">
-                <div class="image-placeholder"><img src="peti wé.jpeg" alt="Petit Wé" class="zoomable"></div>
-                <h3>Petit Wé</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
-                    <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
-                </select>
-                <p class="price" data-price="12000">12 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="summer">
-                <div class="image-placeholder"><img src="pour la plage.jpeg" alt="Tenue de Plage" class="zoomable"></div>
-                <h3>Tenue de Plage</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="8000">XS / S — 8 000 FCFA</option>
-                    <option value="M / L" data-price="10000">M / L — 10 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="12000">XL / 2XL — 12 000 FCFA</option>
-                </select>
-                <p class="price" data-price="8000">8 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="women">
-                <div class="image-placeholder"><img src="robe violet.jpeg" alt="Robe Violette" class="zoomable"></div>
-                <h3>Robe Violette</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="20000">XS / S — 20 000 FCFA</option>
-                    <option value="M / L" data-price="22000">M / L — 22 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="24000">XL / 2XL — 24 000 FCFA</option>
-                </select>
-                <p class="price" data-price="20000">20 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="evening">
-                <div class="image-placeholder"><img src="rouge pour soiré.jpeg" alt="Robe de Soirée" class="zoomable"></div>
-                <h3>Robe de Soirée Rouge</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="20000">XS / S — 20 000 FCFA</option>
-                    <option value="M / L" data-price="22000">M / L — 22 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="24000">XL / 2XL — 24 000 FCFA</option>
-                </select>
-                <p class="price" data-price="20000">20 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="accessories">
-                <div class="image-placeholder"><img src="sac a main 2.jpeg" alt="Sac à Main" class="zoomable"></div>
-                <h3>Sac à Main</h3>
-                <p class="details">Accessoire</p>
-                <p class="price" data-price="8000">8 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="summer">
-                <div class="image-placeholder"><img src="ensemble rose.jpeg" alt="Ensemble Rayé Rose" class="zoomable"></div>
-                <h3>Ensemble Rayé Rose</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="16000">XS / S — 16 000 FCFA</option>
-                    <option value="M / L" data-price="18000">M / L — 18 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="20000">XL / 2XL — 20 000 FCFA</option>
-                </select>
-                <p class="price" data-price="16000">16 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="women">
-                <div class="image-placeholder"><img src="ensemble.jpeg" alt="Ensemble Marine et Blanc" class="zoomable"></div>
-                <h3>Ensemble Marine et Blanc</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="16000">XS / S — 16 000 FCFA</option>
-                    <option value="M / L" data-price="18000">M / L — 18 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="20000">XL / 2XL — 20 000 FCFA</option>
-                </select>
-                <p class="price" data-price="16000">16 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="women">
-                <div class="image-placeholder"><img src="haut.jpeg" alt="Haut Filet à Nœuds" class="zoomable"></div>
-                <h3>Haut Filet à Nœuds</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="7000">XS / S — 7 000 FCFA</option>
-                    <option value="M / L" data-price="9000">M / L — 9 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="11000">XL / 2XL — 11 000 FCFA</option>
-                </select>
-                <p class="price" data-price="7000">7 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="summer">
-                <div class="image-placeholder"><img src="plage bleu jolie.jpeg" alt="Ensemble Bikini Blanc Coquillages" class="zoomable"></div>
-                <h3>Ensemble Bikini Blanc Coquillages</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
-                    <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
-                </select>
-                <p class="price" data-price="12000">12 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="summer">
-                <div class="image-placeholder"><img src="plage bleu petit.jpeg" alt="Ensemble Bikini Bleu et Mini-Jupe" class="zoomable"></div>
-                <h3>Ensemble Bikini Bleu et Mini-Jupe</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
-                    <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
-                </select>
-                <p class="price" data-price="12000">12 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="accessories">
-                <div class="image-placeholder"><img src="sac a main.jpeg" alt="Sac à Main Fleur Rose" class="zoomable"></div>
-                <h3>Sac à Main Fleur Rose</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="7000">XS / S — 7 000 FCFA</option>
-                    <option value="M / L" data-price="9000">M / L — 9 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="11000">XL / 2XL — 11 000 FCFA</option>
-                </select>
-                <p class="price" data-price="7000">7 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-            <div class="card" data-category="summer">
-                <div class="image-placeholder"><img src="sous vetement.jpeg" alt="Bikini Rose et Bonnet" class="zoomable"></div>
-                <h3>Bikini Rose et Bonnet</h3>
-                <label class="size-label">Taille</label>
-                <select class="size-select">
-                    <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
-                    <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
-                    <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
-                </select>
-                <p class="price" data-price="12000">12 000 FCFA</p>
-                <button class="btn add-to-cart">Ajouter au panier</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="cart" class="cart">
-        <h2>Votre Panier</h2>
-        <div id="cart-items"></div>
-        <h3>Total : <span id="cart-total">0</span> FCFA</h3>
-        <button id="checkout-btn" class="btn">Commander</button>
-    </section>
-
-    <section id="about" class="about">
-        <h2>Notre Histoire</h2>
-        <p>L'amour du vêtement fait main. Chez Abigael Crochet, chaque pièce est unique et réalisée avec passion pour sublimer votre quotidien.</p>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <h2>Ce que disent nos clients</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"La robe bleue fleurie est juste magnifique! La qualité est au rendez-vous."</p>
-                <h3>Marie K.</h3>
-            </div>
-            <div class="testimonial-card">
-                <p>"Les tenues pour enfants sont adorables et très confortables."</p>
-                <h3>Sophie L.</h3>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>Contactez-nous pour commander.</p>
-    </footer>
-
-    <div id="contact-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Passer votre commande</h2>
-            <form id="contact-form">
-                <label for="name">Nom</label>
-                <input type="text" id="name" required placeholder="Votre nom">
-                <label for="phone">Téléphone</label>
-                <input type="tel" id="phone" required placeholder="Votre numéro">
-                <label for="email">Email</label>
-                <input type="email" id="email" required placeholder="Votre email">
-                <button type="submit" class="btn">Envoyer la commande</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="lightbox-overlay" class="lightbox-overlay">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="">
-    </div>
-
-    <script src="script.js"></script>
+<header class="top"><img src="logo_ac.jfif" alt="Abigael Crochet Premium Boutique"><nav><a href="#collection">Collection</a><a href="#histoire">Notre histoire</a><a href="#panier">Panier (<span id="cart-count">0</span>)</a></nav></header>
+<section class="hero"><h1>Abigael Crochet</h1><p>Vêtements et accessoires faits main au crochet, pour les petits et pour les grands.</p><a class="btn" href="#collection">Voir la collection</a></section>
+<main>
+<h2 id="collection">Collection</h2>
+<p style="margin:0;color:var(--muted)">Touchez une photo pour l’agrandir. Choisissez votre taille puis ajoutez au panier.</p>
+<div class="chips" role="group" aria-label="Filtrer par catégorie"><button data-f="all" aria-pressed="true">Tout</button><button data-f="femmes" aria-pressed="false">Femmes</button><button data-f="plage" aria-pressed="false">Plage</button><button data-f="enfants" aria-pressed="false">Enfants</button><button data-f="accessoires" aria-pressed="false">Accessoires</button></div>
+<div class="grid">
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Jupe Jolie"><img src="jube jolie.jpeg" alt="Jupe Jolie" loading="lazy"></button>
+      <div class="in">
+        <h3>Jupe Jolie</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="15000">XS / S — 15 000 FCFA</option>
+          <option value="M / L" data-price="17000">M / L — 17 000 FCFA</option>
+          <option value="XL / 2XL" data-price="19000">XL / 2XL — 19 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="15000">15 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Robe Longue Multicolore"><img src="robe long multicolore.jpeg" alt="Robe Longue Multicolore" loading="lazy"></button>
+      <div class="in">
+        <h3>Robe Longue Multicolore</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="20000">XS / S — 20 000 FCFA</option>
+          <option value="M / L" data-price="22000">M / L — 22 000 FCFA</option>
+          <option value="XL / 2XL" data-price="24000">XL / 2XL — 24 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="20000">20 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Robe Bleue Fleurie"><img src="belle robe a fleur bleu.jpeg" alt="Robe Bleue Fleurie" loading="lazy"></button>
+      <div class="in">
+        <h3>Robe Bleue Fleurie</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="18000">XS / S — 18 000 FCFA</option>
+          <option value="M / L" data-price="20000">M / L — 20 000 FCFA</option>
+          <option value="XL / 2XL" data-price="22000">XL / 2XL — 22 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="18000">18 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="enfants">
+      <button class="ph" aria-label="Agrandir Petit Wé"><img src="peti wé.jpeg" alt="Petit Wé" loading="lazy"></button>
+      <div class="in">
+        <h3>Petit Wé</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
+          <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
+          <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="12000">12 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="plage">
+      <button class="ph" aria-label="Agrandir Tenue de Plage"><img src="pour la plage.jpeg" alt="Tenue de Plage" loading="lazy"></button>
+      <div class="in">
+        <h3>Tenue de Plage</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="8000">XS / S — 8 000 FCFA</option>
+          <option value="M / L" data-price="10000">M / L — 10 000 FCFA</option>
+          <option value="XL / 2XL" data-price="12000">XL / 2XL — 12 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="8000">8 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Robe Violette"><img src="robe violet.jpeg" alt="Robe Violette" loading="lazy"></button>
+      <div class="in">
+        <h3>Robe Violette</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="20000">XS / S — 20 000 FCFA</option>
+          <option value="M / L" data-price="22000">M / L — 22 000 FCFA</option>
+          <option value="XL / 2XL" data-price="24000">XL / 2XL — 24 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="20000">20 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Robe de Soirée Rouge"><img src="rouge pour soiré.jpeg" alt="Robe de Soirée Rouge" loading="lazy"></button>
+      <div class="in">
+        <h3>Robe de Soirée Rouge</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="20000">XS / S — 20 000 FCFA</option>
+          <option value="M / L" data-price="22000">M / L — 22 000 FCFA</option>
+          <option value="XL / 2XL" data-price="24000">XL / 2XL — 24 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="20000">20 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="accessoires">
+      <button class="ph" aria-label="Agrandir Sac à Main"><img src="sac a main 2.jpeg" alt="Sac à Main" loading="lazy"></button>
+      <div class="in">
+        <h3>Sac à Main</h3>
+        <p class="pr" data-price="8000">8 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="plage">
+      <button class="ph" aria-label="Agrandir Ensemble Rayé Rose"><img src="ensemble rose.jpeg" alt="Ensemble Rayé Rose" loading="lazy"></button>
+      <div class="in">
+        <h3>Ensemble Rayé Rose</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="16000">XS / S — 16 000 FCFA</option>
+          <option value="M / L" data-price="18000">M / L — 18 000 FCFA</option>
+          <option value="XL / 2XL" data-price="20000">XL / 2XL — 20 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="16000">16 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Ensemble Marine et Blanc"><img src="ensemble.jpeg" alt="Ensemble Marine et Blanc" loading="lazy"></button>
+      <div class="in">
+        <h3>Ensemble Marine et Blanc</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="16000">XS / S — 16 000 FCFA</option>
+          <option value="M / L" data-price="18000">M / L — 18 000 FCFA</option>
+          <option value="XL / 2XL" data-price="20000">XL / 2XL — 20 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="16000">16 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="femmes">
+      <button class="ph" aria-label="Agrandir Haut Filet à Nœuds"><img src="haut.jpeg" alt="Haut Filet à Nœuds" loading="lazy"></button>
+      <div class="in">
+        <h3>Haut Filet à Nœuds</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="7000">XS / S — 7 000 FCFA</option>
+          <option value="M / L" data-price="9000">M / L — 9 000 FCFA</option>
+          <option value="XL / 2XL" data-price="11000">XL / 2XL — 11 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="7000">7 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="plage">
+      <button class="ph" aria-label="Agrandir Ensemble Bikini Blanc Coquillages"><img src="plage bleu jolie.jpeg" alt="Ensemble Bikini Blanc Coquillages" loading="lazy"></button>
+      <div class="in">
+        <h3>Ensemble Bikini Blanc Coquillages</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
+          <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
+          <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="12000">12 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="plage">
+      <button class="ph" aria-label="Agrandir Ensemble Bikini Bleu et Mini-Jupe"><img src="plage bleu petit.jpeg" alt="Ensemble Bikini Bleu et Mini-Jupe" loading="lazy"></button>
+      <div class="in">
+        <h3>Ensemble Bikini Bleu et Mini-Jupe</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
+          <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
+          <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="12000">12 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="accessoires">
+      <button class="ph" aria-label="Agrandir Sac à Main Fleur Rose"><img src="sac a main.jpeg" alt="Sac à Main Fleur Rose" loading="lazy"></button>
+      <div class="in">
+        <h3>Sac à Main Fleur Rose</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="7000">XS / S — 7 000 FCFA</option>
+          <option value="M / L" data-price="9000">M / L — 9 000 FCFA</option>
+          <option value="XL / 2XL" data-price="11000">XL / 2XL — 11 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="7000">7 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="card" data-cat="plage">
+      <button class="ph" aria-label="Agrandir Bikini Rose et Bonnet"><img src="sous vetement.jpeg" alt="Bikini Rose et Bonnet" loading="lazy"></button>
+      <div class="in">
+        <h3>Bikini Rose et Bonnet</h3>
+        <label class="size-label">Taille
+          <select class="size-select">
+          <option value="XS / S" data-price="12000">XS / S — 12 000 FCFA</option>
+          <option value="M / L" data-price="14000">M / L — 14 000 FCFA</option>
+          <option value="XL / 2XL" data-price="16000">XL / 2XL — 16 000 FCFA</option>
+          </select>
+        </label>
+        <p class="pr" data-price="12000">12 000 FCFA</p>
+        <button class="btn add">Ajouter au panier</button>
+      </div>
+    </article>
+  </div>
+<section class="cart" id="panier">
+    <h2>Votre panier</h2>
+    <p id="cart-empty" class="muted">Votre panier est vide.</p>
+    <div id="cart-items"></div>
+    <p class="total">Total : <span id="cart-total">0</span> FCFA</p>
+    <button class="btn" id="checkout">Commander</button>
+  </section>
+  <section class="about" id="histoire"><h2>Notre histoire</h2><p>L’amour du vêtement fait main. Chez Abigael Crochet, chaque pièce est unique et réalisée avec passion pour sublimer votre quotidien.</p><div><a class="btn" href="https://wa.me/2250161334977">Écrire sur WhatsApp</a></div></section>
+</main>
+<footer>Abigael Crochet · Le style pour tous</footer>
+<div class="lb" id="modal"><form class="box" id="order-form"><button type="button" class="x" aria-label="Fermer">&times;</button><h2>Passer votre commande</h2>
+<label>Nom<input type="text" id="name" required placeholder="Votre nom"></label>
+<label>Téléphone<input type="tel" id="phone" required placeholder="Votre numéro"></label>
+<label>Email<input type="email" id="email" required placeholder="Votre email"></label>
+<button type="submit" class="btn">Envoyer la commande sur WhatsApp</button></form></div>
+<div class="lb" id="lb"><button aria-label="Fermer">&times;</button><img alt=""></div>
+<script src="script.js"></script>
 </body>
 </html>
